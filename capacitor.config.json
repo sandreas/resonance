@@ -1,0 +1,10 @@
+{
+  "appId": "com.pilabor.resonance",
+  "appName": "resonance",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
