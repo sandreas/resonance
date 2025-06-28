@@ -20,7 +20,7 @@ import org.koin.core.parameter.parametersOf
 fun NavigationRoot(
     modifier: Modifier = Modifier
 ) {
-    val backStack = rememberNavBackStack(DetailsNavKey("1"))
+    val backStack = rememberNavBackStack(HomeNavKey)
     NavDisplay(
         modifier = modifier,
         backStack = backStack,
@@ -31,13 +31,16 @@ fun NavigationRoot(
         ),
         // sceneStrategy = TwoPaneSceneStrategy(),
         entryProvider = { key ->
+            // todo: HomeNavEntry : NavEntry
             when(key) {
                 is HomeNavKey -> {
                     NavEntry(
                         key = key,
                         // metadata = TwoPaneScene.twoPane()
                     ) {
-                        HomeScreen()
+                        HomeScreen(onDetailClick = { id ->
+                            backStack.add(DetailsNavKey(id))
+                        })
                     }
                 }
 
