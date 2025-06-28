@@ -31,7 +31,7 @@ fun NavigationRoot(
         ),
         // sceneStrategy = TwoPaneSceneStrategy(),
         entryProvider = { key ->
-            // todo: HomeNavEntry : NavEntry
+            // todo: maybe create class instead of handling everything here HomeNavEntry : NavEntry
             when(key) {
                 is HomeNavKey -> {
                     NavEntry(
