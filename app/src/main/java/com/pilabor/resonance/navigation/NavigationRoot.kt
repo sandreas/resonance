@@ -4,22 +4,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavEntry
-import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.navigation3.ui.rememberSceneSetupNavEntryDecorator
-import com.pilabor.resonance.screens.HomeScreen
-import kotlinx.serialization.Serializable
+import com.pilabor.resonance.feature.details.DetailScreen
+import com.pilabor.resonance.feature.details.DetailsNavKey
+import com.pilabor.resonance.feature.home.HomeNavKey
+import com.pilabor.resonance.feature.home.HomeScreen
+import org.koin.androidx.compose.koinViewModel
+import org.koin.core.parameter.parametersOf
 
-@Serializable
-data object HomeScreenNavKey: NavKey
 
 @Composable
 fun NavigationRoot(
     modifier: Modifier = Modifier
 ) {
-    val backStack = rememberNavBackStack(HomeScreenNavKey)
+    val backStack = rememberNavBackStack(DetailsNavKey("1"))
     NavDisplay(
         modifier = modifier,
         backStack = backStack,
@@ -31,7 +32,7 @@ fun NavigationRoot(
         // sceneStrategy = TwoPaneSceneStrategy(),
         entryProvider = { key ->
             when(key) {
-                is HomeScreenNavKey -> {
+                is HomeNavKey -> {
                     NavEntry(
                         key = key,
                         // metadata = TwoPaneScene.twoPane()
@@ -39,21 +40,19 @@ fun NavigationRoot(
                         HomeScreen()
                     }
                 }
-                /*
-                is NoteDetailScreen -> {
+
+                is DetailsNavKey -> {
                     NavEntry(
                         key = key,
-                        metadata = TwoPaneScene.twoPane()
+                        // metadata = TwoPaneScene.twoPane()
                     ) {
-                        NoteDetailScreenUi(
+                        DetailScreen(
                             viewModel = koinViewModel {
                                 parametersOf(key.id)
                             }
                         )
                     }
                 }
-
-                 */
                 else -> throw RuntimeException("Invalid NavKey.")
             }
         },

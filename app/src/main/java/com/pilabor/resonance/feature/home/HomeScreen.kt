@@ -1,4 +1,4 @@
-package com.pilabor.resonance.screens
+package com.pilabor.resonance.feature.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
