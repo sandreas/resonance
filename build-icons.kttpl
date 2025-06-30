@@ -1,0 +1,11 @@
+import androidx.compose.ui.graphics.vector.ImageVector
+import com.pilabor.resonance.icons.createIcon
+
+val {NAME}: ImageVector
+    get() {
+        if ({NAME}_ != null) return {NAME}_!!
+        {NAME}_ = createIcon(name="{NAME}", path="{PATH}")
+        return {NAME}_!!
+    }
+
+private var {NAME}_: ImageVector? = null
