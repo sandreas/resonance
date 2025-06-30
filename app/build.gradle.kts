@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     // custom
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -74,5 +75,10 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+
+    implementation (libs.androidx.media3.exoplayer)
+    implementation (libs.androidx.media3.session)
+    implementation (libs.androidx.media3.ui)
+    implementation (libs.androidx.media)
 }
 
