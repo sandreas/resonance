@@ -1,5 +1,6 @@
 package com.pilabor.resonance.helper
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -25,11 +26,12 @@ import com.pilabor.resonance.service.PlaybackService;
 class NotificationHelper(private val context: Context) {
 
     companion object {
-        const val CHANNEL_ID = "musify_notification_channel"
-        const val CHANNEL_NAME = "Musify Notification Channel"
-        const val CHANNEL_DESCRIPTION = "Channel for Musify playback notifications"
+        const val CHANNEL_ID = "resonance_notification_channel"
+        const val CHANNEL_NAME = "Resonance Notification Channel"
+        const val CHANNEL_DESCRIPTION = "Channel for Resonance playback notifications"
         const val NOTIFICATION_ID = 1
 
+        @SuppressLint("ObsoleteSdkInt")
         fun createNotificationChannel(context: Context) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val channel = NotificationChannel(
@@ -66,7 +68,7 @@ class NotificationHelper(private val context: Context) {
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(song.title)
             .setContentText(song.artist)
-            // .setSmallIcon(com.codewithfk.musify_android.R.drawable.ic_profile)
+            // .setSmallIcon(com.pilabor.resonance.R.drawable.ic_profile)
             .setContentIntent(pendingIntent)
             .setStyle(
                 androidx.media.app.NotificationCompat.MediaStyle()
@@ -171,7 +173,7 @@ class NotificationHelper(private val context: Context) {
                         val bitmap = BitmapFactory.decodeStream(input)
 
                         bitmap
-                    } catch (e: Exception) {
+                    } catch (_: Exception) {
                         null
                     }
                 }
