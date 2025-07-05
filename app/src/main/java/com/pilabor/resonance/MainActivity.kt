@@ -6,6 +6,7 @@ import BootstrapRewindCircle
 import BootstrapSkipEndCircle
 import BootstrapSkipStartCircle
 import android.Manifest
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -34,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import com.pilabor.resonance.navigation.NavigationRoot
+import com.pilabor.resonance.service.PlaybackService
 import com.pilabor.resonance.ui.theme.ResonanceTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -128,7 +130,10 @@ fun AppBottomBar(mainViewModel: MainViewModel?) {
                     }
                     IconButton(
                         modifier = Modifier.padding(0.dp).fillMaxHeight(),
-                        onClick = { mainViewModel?.onPlay() },
+                        onClick = {
+                            mainViewModel?.onPlay()
+
+                        },
                     ) {
                         Icon(modifier = Modifier.size(40.dp), imageVector = BootstrapPlayCircle, contentDescription = "Skip start")
                     }

@@ -21,7 +21,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
 
-class PlaybackService(private var activeMediaSourceItem: MediaSourceItem?) : Service() {
+class PlaybackService() : Service() {
 
 
     companion object {
@@ -54,6 +54,7 @@ class PlaybackService(private var activeMediaSourceItem: MediaSourceItem?) : Ser
     var currentNotification: Notification? = null
     private val serviceScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var notificationUpdateJob: Job? = null
+    private var activeMediaSourceItem: MediaSourceItem? = null
 
     override fun onCreate() {
         super.onCreate()

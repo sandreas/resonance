@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceTrack
+import com.pilabor.resonance.model.sampleMediaSources
 import com.pilabor.resonance.service.PlaybackService
 // import com.pilabor.resonance.service.PlaybackService.Companion.KEY_SONG
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -141,6 +142,42 @@ class MainViewModel(): ViewModel() {
 
 
     fun onPlay() {
+        var item = sampleMediaSources
+
+        /*
+
+
+any intent you make to a service, activity etc. in your app should always follow this format
+
+Intent serviceIntent = new Intent(context,MyService.class);
+context.startService(serviceIntent);
+
+or
+
+Intent bi = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+bi.setPackage("com.android.vending");
+
+implicit intents (what you have in your code currently) are considered a security risk
+
+         */
+
+        /*
+        Intent(PlaybackService.ACTION_PLAY).also {
+            MainApp.getContext().startService(it)
+        }
+
+         */
+        // intent.putExtra(PlaybackService.KEY_MEDIA_SOURCE_ITEM, mediaItem)
+
+        val context = MainApp.getContext()
+        Intent(context, PlaybackService::class.java).also {
+            it.action = PlaybackService.ACTION_PLAY
+            it.putExtra(PlaybackService.KEY_MEDIA_SOURCE_ITEM, mediaItem)
+
+            context.startForegroundService(it)
+        }
+
+
         /*
         val playbackService = PlaybackService.getInstance()
         if(playbackService?.playerState?.value?.currentSong == null) {
