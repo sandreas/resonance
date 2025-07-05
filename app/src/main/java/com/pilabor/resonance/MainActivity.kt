@@ -5,6 +5,8 @@ import BootstrapPlayCircle
 import BootstrapRewindCircle
 import BootstrapSkipEndCircle
 import BootstrapSkipStartCircle
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.app.ActivityCompat
 import com.pilabor.resonance.navigation.NavigationRoot
 import com.pilabor.resonance.ui.theme.ResonanceTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,6 +42,16 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                0
+            )
+        }
+
+
         enableEdgeToEdge()
         setContent {
             ResonanceTheme {
@@ -109,25 +122,25 @@ fun AppBottomBar(mainViewModel: MainViewModel?) {
                     }
                     IconButton(
                         modifier = Modifier.padding(0.dp).fillMaxHeight(),
-                        onClick = { /* do something */ },
+                        onClick = { mainViewModel?.onJumpBack() },
                     ) {
                         Icon(modifier = Modifier.size(40.dp), imageVector = BootstrapRewindCircle, contentDescription = "Skip start")
                     }
                     IconButton(
                         modifier = Modifier.padding(0.dp).fillMaxHeight(),
-                        onClick = { /* do something */ },
+                        onClick = { mainViewModel?.onPlay() },
                     ) {
                         Icon(modifier = Modifier.size(40.dp), imageVector = BootstrapPlayCircle, contentDescription = "Skip start")
                     }
                     IconButton(
                         modifier = Modifier.padding(0.dp).fillMaxHeight(),
-                        onClick = { /* do something */ },
+                        onClick = { mainViewModel?.onJumpForward() },
                     ) {
                         Icon(modifier = Modifier.size(40.dp), imageVector = BootstrapFastForwardCircle, contentDescription = "Skip start")
                     }
                     IconButton(
                         modifier = Modifier.padding(0.dp).fillMaxHeight(),
-                        onClick = { /* do something */ },
+                        onClick = { mainViewModel?.onNext() },
                     ) {
                         Icon(modifier = Modifier.size(40.dp), imageVector = BootstrapSkipEndCircle, contentDescription = "Skip start")
                     }
