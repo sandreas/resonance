@@ -4,8 +4,14 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     // custom
+    alias(libs.plugins.kotlin.ksp)
+    // alias(libs.plugins.kotlin.serialization)
+
     alias(libs.plugins.jetbrains.kotlin.serialization)
     id("kotlin-parcelize")
+
+
+
 }
 
 android {
@@ -80,5 +86,42 @@ dependencies {
     implementation (libs.androidx.media3.session)
     implementation (libs.androidx.media3.ui)
     implementation (libs.androidx.media)
+
+
+
+
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.koin.android)
+    implementation(libs.koin.annotations)
+    ksp(libs.koin.ksp.compiler)
+
+    implementation (libs.koin.androidx.navigation)
+    implementation (libs.koin.androidx.compose)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.navigation.compose)
+    implementation (libs.kotlinx.serialization.json)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+
 }
 

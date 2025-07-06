@@ -13,14 +13,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import androidx.core.os.BundleCompat
 import androidx.media.session.MediaButtonReceiver
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_NEXT
+import com.pilabor.resonance.data.service.PlaybackService
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_NEXT
 
 // import code.name.monkey.retromusic.BuildConfig
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_PAUSE
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_PLAY
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_STOP
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_REWIND
-import com.pilabor.resonance.service.PlaybackService.Companion.ACTION_TOGGLE
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_PAUSE
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_PLAY
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_STOP
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_REWIND
+import com.pilabor.resonance.data.service.PlaybackService.Companion.ACTION_TOGGLE
 
 /**
  * Used to control headset playback.

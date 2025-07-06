@@ -15,8 +15,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.pilabor.resonance.MainActivity
 import com.pilabor.resonance.MainApp
+import com.pilabor.resonance.data.service.PlaybackService
 import com.pilabor.resonance.mediaSource.api.interfaces.PlaybackNotificationMeta
-import com.pilabor.resonance.service.PlaybackService
+//import com.pilabor.resonance.service.PlaybackService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

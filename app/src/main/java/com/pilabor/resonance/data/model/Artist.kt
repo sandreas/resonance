@@ -1,15 +1,14 @@
-package com.pilabor.resonance.mediaSource.api.model
-
+package com.pilabor.resonance.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class MediaSourcePerson(
+data class Artist(
+    val bio: String,
+    val createdAt: Long,
     val id: String,
     val name: String,
-    val bio: String,
     val profilePicture: String,
-    val createdAt: Long,
     val updatedAt: Long
 ) : Parcelable

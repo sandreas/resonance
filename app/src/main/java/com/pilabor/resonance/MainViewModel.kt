@@ -6,10 +6,11 @@ import android.content.ServiceConnection
 import android.os.IBinder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pilabor.resonance.data.service.PlaybackService
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceTrack
 import com.pilabor.resonance.model.sampleMediaSources
-import com.pilabor.resonance.service.PlaybackService
+//import com.pilabor.resonance.service.PlaybackService
 // import com.pilabor.resonance.service.PlaybackService.Companion.KEY_SONG
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -172,7 +173,7 @@ implicit intents (what you have in your code currently) are considered a securit
         val context = MainApp.getContext()
         Intent(context, PlaybackService::class.java).also {
             it.action = PlaybackService.ACTION_PLAY
-            it.putExtra(PlaybackService.KEY_MEDIA_SOURCE_ITEM, mediaItem)
+            // it.putExtra(PlaybackService.KEY_MEDIA_SOURCE_ITEM, mediaItem)
 
             context.startForegroundService(it)
         }
