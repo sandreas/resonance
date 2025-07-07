@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".data.service.ResonancePlaybackService"
+        <service android:name=".data.service.PlaybackService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback"
             />

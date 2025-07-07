@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pilabor.resonance.data.model.RegisterRequest
 import com.pilabor.resonance.data.repository.AuthenticationRepository
-import com.pilabor.resonance.ui.feature.login.LoginEvent
-import com.pilabor.resonance.ui.feature.login.LoginState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +15,7 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class RegisterViewModel(
     private val authenticationRepository: AuthenticationRepository,
-    private val resonanceSession: com.pilabor.resonance.data.ResonanceSession
+    private val resonanceSession: com.pilabor.resonance.data.SettingsStorage
 ) :
     ViewModel() {
 

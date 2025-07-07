@@ -7,10 +7,10 @@ import android.content.ServiceConnection
 import android.os.IBinder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.SettingsStorage
 import com.pilabor.resonance.data.repository.MusicRepository
-import com.pilabor.resonance.data.service.ResonancePlaybackService
-import com.pilabor.resonance.data.service.ResonancePlaybackService.Companion.KEY_SONG
+import com.pilabor.resonance.data.service.PlaybackService
+import com.pilabor.resonance.data.service.PlaybackService.Companion.KEY_SONG
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class PlaySongViewModel(private val repo: MusicRepository, private val session: ResonanceSession, private val context: Context) :
+class PlaySongViewModel(private val repo: MusicRepository, private val session: SettingsStorage, private val context: Context) :
     ViewModel() {
 
     private val _state = MutableStateFlow<PlaySongState>(PlaySongState.Loading)
@@ -32,7 +32,7 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
     val event = _event.asSharedFlow()
     val mediaSource = session.getActiveMediaSource()
 
-    private var playbackService: ResonancePlaybackService? = null
+    private var playbackService: PlaybackService? = null
     private var isServiceBound = false
     private var currentSong: MediaSourceItem? = null
 
@@ -42,7 +42,7 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
             binder: IBinder?
         ) {
             isServiceBound = true
-            playbackService = (binder as ResonancePlaybackService.MusicBinder).getService()
+            playbackService = (binder as PlaybackService.MusicBinder).getService()
             observePlaybackService()
             currentSong?.let {
                 playbackService?.playSong(it)
@@ -104,8 +104,8 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
     }
 
     private fun startServiceAndBind(song: MediaSourceItem) {
-        val intent = Intent(context, ResonancePlaybackService::class.java).apply {
-            action = ResonancePlaybackService.ACTION_PLAY
+        val intent = Intent(context, PlaybackService::class.java).apply {
+            action = PlaybackService.ACTION_PLAY
             putExtra(KEY_SONG, song)
         }
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

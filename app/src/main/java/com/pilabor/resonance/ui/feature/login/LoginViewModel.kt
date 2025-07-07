@@ -2,7 +2,7 @@ package com.pilabor.resonance.ui.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.SettingsStorage
 import com.pilabor.resonance.data.model.LoginRequest
 import com.pilabor.resonance.data.repository.AuthenticationRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -16,7 +16,7 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class LoginViewModel(
     private val authenticationRepository: AuthenticationRepository,
-    private val resonanceSession: ResonanceSession
+    private val resonanceSession: SettingsStorage
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<LoginState>(LoginState.Nothing)

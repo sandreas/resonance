@@ -2,7 +2,7 @@ package com.pilabor.resonance.ui.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.SettingsStorage
 import com.pilabor.resonance.data.model.HomeDataResponse
 import com.pilabor.resonance.data.repository.HomeRepository
 import com.pilabor.resonance.data.repository.MusicRepository
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class HomeViewModel(private val homeRepository: HomeRepository, private  val resonanceSession: ResonanceSession, private val musicRepo: MusicRepository) : ViewModel() {
+class HomeViewModel(private val homeRepository: HomeRepository, private  val resonanceSession: SettingsStorage, private val musicRepo: MusicRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<HomeState>(HomeState.Loading)
     val state: StateFlow<HomeState> = _state

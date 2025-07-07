@@ -1,7 +1,7 @@
 package com.pilabor.resonance
 
 import android.app.Application
-import com.pilabor.resonance.data.helper.ResonanceNotificationHelper
+import com.pilabor.resonance.data.helper.NotificationHelper
 import com.pilabor.resonance.di.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -16,6 +16,6 @@ class MainApp : Application() {
             androidContext(this@MainApp)
             modules(defaultModule, NetworkModule().module)
         }
-        ResonanceNotificationHelper.createNotificationChannel(this)
+        NotificationHelper.createNotificationChannel(this)
     }
 }

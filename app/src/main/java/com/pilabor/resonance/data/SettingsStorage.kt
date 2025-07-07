@@ -7,15 +7,9 @@ import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
 import com.pilabor.resonance.mediaSource.implementation.mock.MockMediaSource
 
 @Single
-class ResonanceSession(private val context: Context) {
+class SettingsStorage(private val context: Context) {
     private val sharedPreferences =
         context.getSharedPreferences("resonance_session", Context.MODE_PRIVATE)
-
-
-
-
-
-
 
 
     fun saveToken(token: String) {

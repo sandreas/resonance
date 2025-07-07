@@ -12,14 +12,11 @@ import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import android.util.Log
 import android.view.KeyEvent
-import androidx.core.net.toUri
 import androidx.media.session.MediaButtonReceiver
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
-import com.pilabor.resonance.data.ResonanceSession
-import com.pilabor.resonance.data.helper.ResonanceNotificationHelper
-import com.pilabor.resonance.data.model.Song
+import com.pilabor.resonance.data.helper.NotificationHelper
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +29,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import kotlin.time.Duration.Companion.milliseconds
 
-class ResonancePlaybackService : Service() {
+class PlaybackService : Service() {
 
     companion object {
         const val ACTION_PLAY = "com.pilabor.resonance.ACTION_PLAY"
@@ -46,7 +43,7 @@ class ResonancePlaybackService : Service() {
     }
 
     inner class MusicBinder : Binder() {
-        fun getService(): ResonancePlaybackService = this@ResonancePlaybackService
+        fun getService(): PlaybackService = this@PlaybackService
     }
 
     private val binder = MusicBinder()
@@ -57,7 +54,7 @@ class ResonancePlaybackService : Service() {
 
     private lateinit var exoPlayer: ExoPlayer
     private lateinit var mediaSession: MediaSessionCompat
-    private val notificationHelper: ResonanceNotificationHelper by inject()
+    private val notificationHelper: NotificationHelper by inject()
 
     private var positionUpdateJob: Job? = null
     private var notificationUpdateJob: Job? = null
@@ -591,7 +588,7 @@ class ResonancePlaybackService : Service() {
                     try {
                         currentNotification = it
                         startForeground(
-                            ResonanceNotificationHelper.NOTIFICATION_ID, it
+                            NotificationHelper.NOTIFICATION_ID, it
                         )
                         isForegroundService = true
                     } catch (ex: Exception) {

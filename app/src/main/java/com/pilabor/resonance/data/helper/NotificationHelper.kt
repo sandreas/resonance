@@ -13,7 +13,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.pilabor.resonance.MainActivity
 import com.pilabor.resonance.R
-import com.pilabor.resonance.data.service.ResonancePlaybackService
+import com.pilabor.resonance.data.service.PlaybackService
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +24,7 @@ import org.koin.core.annotation.Single
 import java.net.URL
 
 @Single
-class ResonanceNotificationHelper(private val context: Context) {
+class NotificationHelper(private val context: Context) {
 
     companion object {
         const val CHANNEL_ID = "resonance_notification_channel"
@@ -78,17 +78,17 @@ class ResonanceNotificationHelper(private val context: Context) {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
 
-        val prevIntent = Intent(context, ResonancePlaybackService::class.java).apply {
-            action = ResonancePlaybackService.ACTION_PREVIOUS
+        val prevIntent = Intent(context, PlaybackService::class.java).apply {
+            action = PlaybackService.ACTION_PREVIOUS
         }
-        val nextIntent = Intent(context, ResonancePlaybackService::class.java).apply {
-            action = ResonancePlaybackService.ACTION_NEXT
+        val nextIntent = Intent(context, PlaybackService::class.java).apply {
+            action = PlaybackService.ACTION_NEXT
         }
-        val playIntent = Intent(context, ResonancePlaybackService::class.java).apply {
-            action = ResonancePlaybackService.ACTION_PLAY
+        val playIntent = Intent(context, PlaybackService::class.java).apply {
+            action = PlaybackService.ACTION_PLAY
         }
-        val pauseIntent = Intent(context, ResonancePlaybackService::class.java).apply {
-            action = ResonancePlaybackService.ACTION_PAUSE
+        val pauseIntent = Intent(context, PlaybackService::class.java).apply {
+            action = PlaybackService.ACTION_PAUSE
         }
 
         val prevPendingIntent = PendingIntent.getService(

@@ -1,6 +1,6 @@
 package com.pilabor.resonance.di
 
-import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.SettingsStorage
 import com.pilabor.resonance.data.network.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,7 +22,7 @@ class NetworkModule {
     @Single
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        resonanceSession: ResonanceSession
+        resonanceSession: SettingsStorage
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
