@@ -8,12 +8,12 @@ import org.koin.core.context.startKoin
 import org.koin.ksp.generated.defaultModule
 import org.koin.ksp.generated.module
 
-class ResonanceApp : Application() {
+class MainApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidContext(this@ResonanceApp)
+            androidContext(this@MainApp)
             modules(defaultModule, NetworkModule().module)
         }
         ResonanceNotificationHelper.createNotificationChannel(this)
