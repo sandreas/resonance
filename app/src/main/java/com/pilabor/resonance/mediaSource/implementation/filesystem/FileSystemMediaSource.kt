@@ -1,9 +1,9 @@
-package com.pilabor.resonance.mediaSource.implementation.filesystem
+package com.codewithfk.musify_android.mediaSource.implementation.filesystem
 
-import com.pilabor.resonance.mediaSource.api.MediaSourceAction
-import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
-import com.pilabor.resonance.mediaSource.api.MediaSourceQueryInterface
-import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceAction
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceInterface
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceQueryInterface
+import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
 import okhttp3.internal.immutableListOf
 
 class FileSystemMediaSource(override val id: String, override val name: String) : MediaSourceInterface {

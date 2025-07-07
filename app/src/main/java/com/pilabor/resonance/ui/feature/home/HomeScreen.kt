@@ -1,4 +1,4 @@
-package com.pilabor.resonance.ui.feature.home
+package com.codewithfk.musify_android.ui.feature.home
 
 import android.util.Log
 import android.widget.Toast
@@ -36,15 +36,15 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
-import com.pilabor.resonance.R
-import com.pilabor.resonance.data.model.Album
-import com.pilabor.resonance.data.model.HomeDataResponse
-import com.pilabor.resonance.data.model.Song
-import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
-import com.pilabor.resonance.ui.feature.widgets.ErrorScreen
-import com.pilabor.resonance.ui.feature.widgets.LoadingScreen
-import com.pilabor.resonance.ui.feature.widgets.MusifySpacer
-// import com.pilabor.resonance.ui.navigation.PlaySongRoute
+import com.codewithfk.musify_android.R
+import com.codewithfk.musify_android.data.model.Album
+import com.codewithfk.musify_android.data.model.HomeDataResponse
+import com.codewithfk.musify_android.data.model.Song
+import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.codewithfk.musify_android.ui.feature.widgets.ErrorScreen
+import com.codewithfk.musify_android.ui.feature.widgets.LoadingScreen
+import com.codewithfk.musify_android.ui.feature.widgets.MusifySpacer
+import com.codewithfk.musify_android.ui.navigation.PlaySongRoute
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 import kotlin.random.Random
@@ -60,7 +60,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = koinView
                 }
 
                 is HomeEvent.onSongClick -> {
-                    // navController.navigate(PlaySongRoute(it.songId))
+                    navController.navigate(PlaySongRoute(it.songId))
                 }
             }
         }

@@ -1,5 +1,5 @@
-package com.pilabor.resonance.ui.feature.widgets
-/*
+package com.codewithfk.musify_android.ui.feature.widgets
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -25,8 +25,8 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.pilabor.resonance.R
-import com.pilabor.resonance.ui.theme.MusifyAndroidTheme
+import com.codewithfk.musify_android.R
+import com.codewithfk.musify_android.ui.theme.MusifyAndroidTheme
 
 @Composable
 fun SocialCard(
@@ -124,5 +124,3 @@ fun SocialCardPreview() {
     }
 
 }
-
- */

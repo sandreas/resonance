@@ -1,4 +1,4 @@
-package com.pilabor.resonance.ui.feature.playsong
+package com.codewithfk.musify_android.ui.feature.playsong
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -29,10 +29,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import coil3.compose.AsyncImage
-import com.pilabor.resonance.ui.feature.widgets.ErrorScreen
-import com.pilabor.resonance.ui.feature.widgets.LoadingScreen
-import com.pilabor.resonance.ui.feature.widgets.MusifySpacer
-import com.pilabor.resonance.ui.theme.ResonanceTheme
+import com.codewithfk.musify_android.ui.feature.widgets.ErrorScreen
+import com.codewithfk.musify_android.ui.feature.widgets.LoadingScreen
+import com.codewithfk.musify_android.ui.feature.widgets.MusifySpacer
+import com.codewithfk.musify_android.ui.theme.MusifyAndroidTheme
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
@@ -275,7 +275,7 @@ fun NowPlayingContent(title: String, isPlayList: Boolean = false) {
 @Preview
 @Composable
 fun PlaySongScreenPreview() {
-    ResonanceTheme(darkTheme = true) {
+    MusifyAndroidTheme(darkTheme = true) {
         PlaySongScreenContent(
             title = "Song Title",
             genre = "Pop",

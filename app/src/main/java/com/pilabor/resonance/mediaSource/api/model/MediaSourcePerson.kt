@@ -1,4 +1,4 @@
-package com.pilabor.resonance.mediaSource.api.model
+package com.codewithfk.musify_android.mediaSource.api.model
 
 
 import android.os.Parcelable

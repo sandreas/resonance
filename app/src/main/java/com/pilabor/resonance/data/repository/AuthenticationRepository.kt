@@ -1,10 +1,10 @@
-package com.pilabor.resonance.data.repository
-/*
-import com.pilabor.resonance.data.model.LoginRequest
-import com.pilabor.resonance.data.model.LoginResponse
-import com.pilabor.resonance.data.model.RegisterRequest
-import com.pilabor.resonance.data.network.ApiService
-import com.pilabor.resonance.data.network.Resource
+package com.codewithfk.musify_android.data.repository
+
+import com.codewithfk.musify_android.data.model.LoginRequest
+import com.codewithfk.musify_android.data.model.LoginResponse
+import com.codewithfk.musify_android.data.model.RegisterRequest
+import com.codewithfk.musify_android.data.network.ApiService
+import com.codewithfk.musify_android.data.network.Resource
 import org.koin.core.annotation.Single
 
 @Single
@@ -38,5 +38,3 @@ class AuthenticationRepository(
         }
     }
 }
-
- */

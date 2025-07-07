@@ -1,12 +1,12 @@
-package com.pilabor.resonance.mediaSource.implementation.mock
+package com.codewithfk.musify_android.mediaSource.implementation.mock
 
-import com.pilabor.resonance.data.model.Artist
-import com.pilabor.resonance.mediaSource.api.MediaSourceAction
-import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
-import com.pilabor.resonance.mediaSource.api.MediaSourceQueryInterface
-import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
-import com.pilabor.resonance.mediaSource.api.model.MediaSourcePerson
-import com.pilabor.resonance.mediaSource.api.model.MediaSourceTrack
+import com.codewithfk.musify_android.data.model.Artist
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceAction
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceInterface
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceQueryInterface
+import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.codewithfk.musify_android.mediaSource.api.model.MediaSourcePerson
+import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceTrack
 import okhttp3.internal.immutableListOf
 import kotlin.time.Duration.Companion.milliseconds
 

@@ -1,6 +1,6 @@
-package com.pilabor.resonance.ui.feature.home
+package com.codewithfk.musify_android.ui.feature.home
 
-import com.pilabor.resonance.data.model.HomeDataResponse
+import com.codewithfk.musify_android.data.model.HomeDataResponse
 
 sealed class HomeState {
     object Loading : HomeState()

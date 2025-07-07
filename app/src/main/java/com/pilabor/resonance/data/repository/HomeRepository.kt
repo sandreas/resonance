@@ -1,8 +1,8 @@
-package com.pilabor.resonance.data.repository
-/*
-import com.pilabor.resonance.data.model.HomeDataResponse
-import com.pilabor.resonance.data.network.ApiService
-import com.pilabor.resonance.data.network.Resource
+package com.codewithfk.musify_android.data.repository
+
+import com.codewithfk.musify_android.data.model.HomeDataResponse
+import com.codewithfk.musify_android.data.network.ApiService
+import com.codewithfk.musify_android.data.network.Resource
 import org.koin.core.annotation.Single
 
 @Single
@@ -21,5 +21,3 @@ class HomeRepository(private val apiService: ApiService) {
         }
     }
 }
-
- */

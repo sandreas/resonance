@@ -1,4 +1,4 @@
-package com.pilabor.resonance.ui.feature.widgets
+package com.codewithfk.musify_android.ui.feature.widgets
 
 import android.util.Log
 import androidx.compose.material3.Text

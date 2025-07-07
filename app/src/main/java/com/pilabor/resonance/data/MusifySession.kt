@@ -1,10 +1,10 @@
-package com.pilabor.resonance.data
+package com.codewithfk.musify_android.data
 
 import android.content.Context
 import org.koin.core.annotation.Single
 import androidx.core.content.edit
-import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
-import com.pilabor.resonance.mediaSource.implementation.mock.MockMediaSource
+import com.codewithfk.musify_android.mediaSource.api.MediaSourceInterface
+import com.codewithfk.musify_android.mediaSource.implementation.mock.MockMediaSource
 
 @Single
 class MusifySession(private val context: Context) {

@@ -1,11 +1,11 @@
-package com.pilabor.resonance.data.repository
+package com.codewithfk.musify_android.data.repository
 
-import com.pilabor.resonance.data.model.Artist
-import com.pilabor.resonance.data.model.Song
-//import com.pilabor.resonance.data.network.ApiService
-//import com.pilabor.resonance.data.network.Resource
+import com.codewithfk.musify_android.data.model.Artist
+import com.codewithfk.musify_android.data.model.Song
+import com.codewithfk.musify_android.data.network.ApiService
+import com.codewithfk.musify_android.data.network.Resource
 import org.koin.core.annotation.Single
-/*
+
 @Single
 class MusicRepository(/*private val apiService: ApiService*/) {
     val artists = mutableListOf(
@@ -48,5 +48,3 @@ class MusicRepository(/*private val apiService: ApiService*/) {
     }
 
 }
-
- */

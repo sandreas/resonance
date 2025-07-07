@@ -1,4 +1,4 @@
-package com.pilabor.resonance.mediaSource.api
+package com.codewithfk.musify_android.mediaSource.api
 
 enum class MediaSourceAction {
     None,

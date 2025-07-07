@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">resonance</string>
+    <string name="app_name">Musify-Android</string>
+    <string name="onboarding_text">
+         <![CDATA[
+         From the <highlight>latest</highlight> to the <highlight>greatest</highlight> hits, Play your favorite track on <highlight>Musify</highlight>
+         ]]>
+    </string>
+    <string name="already_have_an_account"><![CDATA[Already have an account? <highlight>Login</highlight>]]></string>
+    <string name="do_not_have_an_account"><![CDATA[Don\'t have an account? <highlight>Register</highlight>]]></string>
 </resources>

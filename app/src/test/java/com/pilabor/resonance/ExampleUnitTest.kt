@@ -1,4 +1,4 @@
-package com.pilabor.resonance
+package com.codewithfk.pilabor
 
 import org.junit.Test
 

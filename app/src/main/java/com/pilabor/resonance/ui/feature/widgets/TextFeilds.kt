@@ -1,4 +1,4 @@
-package com.pilabor.resonance.ui.feature.widgets
+package com.codewithfk.musify_android.ui.feature.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -19,7 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-import com.pilabor.resonance.R
+import com.codewithfk.musify_android.R
 import androidx.compose.ui.unit.dp
 
 
