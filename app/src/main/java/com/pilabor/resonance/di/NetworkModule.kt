@@ -1,7 +1,7 @@
-package com.codewithfk.musify_android.di
+package com.pilabor.resonance.di
 
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.network.ApiService
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.network.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.annotation.Module
@@ -22,15 +22,15 @@ class NetworkModule {
     @Single
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        musifySession: MusifySession
+        resonanceSession: ResonanceSession
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor { chain ->
                 val request = chain.request().newBuilder()
                     .addHeader("Content-Type", "application/json")
-                if (musifySession.getToken() != null) {
-                    request.addHeader("Authorization", "Bearer ${musifySession.getToken()}")
+                if (resonanceSession.getToken() != null) {
+                    request.addHeader("Authorization", "Bearer ${resonanceSession.getToken()}")
                 }
                 chain.proceed(request.build())
             }

@@ -1,10 +1,10 @@
-package com.codewithfk.musify_android.data.network
+package com.pilabor.resonance.data.network
 
-import com.codewithfk.musify_android.data.model.HomeDataResponse
-import com.codewithfk.musify_android.data.model.LoginRequest
-import com.codewithfk.musify_android.data.model.LoginResponse
-import com.codewithfk.musify_android.data.model.RegisterRequest
-import com.codewithfk.musify_android.data.model.Song
+import com.pilabor.resonance.data.model.HomeDataResponse
+import com.pilabor.resonance.data.model.LoginRequest
+import com.pilabor.resonance.data.model.LoginResponse
+import com.pilabor.resonance.data.model.RegisterRequest
+import com.pilabor.resonance.data.model.Song
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

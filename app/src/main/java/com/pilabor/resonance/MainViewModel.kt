@@ -1,16 +1,16 @@
-package com.codewithfk.musify_android
+package com.pilabor.resonance
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.repository.StatusRepository
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.repository.StatusRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class MainViewModel(val repository: StatusRepository, val musifySession: MusifySession) :
+class MainViewModel(val repository: StatusRepository, val resonanceSession: ResonanceSession) :
     ViewModel() {
 
     private val state = MutableStateFlow("")
@@ -21,7 +21,7 @@ class MainViewModel(val repository: StatusRepository, val musifySession: MusifyS
     }
 
     fun isUserLoggedIn(): Boolean {
-        return musifySession.getToken() != null
+        return resonanceSession.getToken() != null
     }
 
     private fun getStatus() {

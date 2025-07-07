@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.theme
+package com.pilabor.resonance.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -32,7 +32,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun MusifyAndroidTheme(
+fun ResonanceAndroidTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,

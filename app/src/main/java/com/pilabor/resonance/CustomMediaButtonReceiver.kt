@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android
+package com.pilabor.resonance
 
 import android.content.Context
 import android.content.Intent

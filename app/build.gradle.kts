@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.codewithfk.musify_android"
+    namespace = "com.pilabor.resonance"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.codewithfk.musify_android"
+        applicationId = "com.pilabor.resonance"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

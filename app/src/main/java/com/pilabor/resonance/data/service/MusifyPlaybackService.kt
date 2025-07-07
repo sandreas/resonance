@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.data.service
+package com.pilabor.resonance.data.service
 
 import android.app.Notification
 import android.app.Service
@@ -17,10 +17,10 @@ import androidx.media.session.MediaButtonReceiver
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.helper.MusifyNotificationHelper
-import com.codewithfk.musify_android.data.model.Song
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.helper.ResonanceNotificationHelper
+import com.pilabor.resonance.data.model.Song
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -32,21 +32,21 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import kotlin.time.Duration.Companion.milliseconds
 
-class MusifyPlaybackService : Service() {
+class ResonancePlaybackService : Service() {
 
     companion object {
-        const val ACTION_PLAY = "com.codewithfk.musify_android.ACTION_PLAY"
-        const val ACTION_PAUSE = "com.codewithfk.musify_android.ACTION_PAUSE"
-        const val ACTION_STOP = "com.codewithfk.musify_android.ACTION_STOP"
-        const val ACTION_PREVIOUS = "com.codewithfk.musify_android.ACTION_PREVIOUS"
-        const val ACTION_NEXT = "com.codewithfk.musify_android.ACTION_NEXT"
-        const val ACTION_PREPARE_SONG = "com.codewithfk.musify_android.ACTION_PREPARE_SONG"
+        const val ACTION_PLAY = "com.pilabor.resonance.ACTION_PLAY"
+        const val ACTION_PAUSE = "com.pilabor.resonance.ACTION_PAUSE"
+        const val ACTION_STOP = "com.pilabor.resonance.ACTION_STOP"
+        const val ACTION_PREVIOUS = "com.pilabor.resonance.ACTION_PREVIOUS"
+        const val ACTION_NEXT = "com.pilabor.resonance.ACTION_NEXT"
+        const val ACTION_PREPARE_SONG = "com.pilabor.resonance.ACTION_PREPARE_SONG"
 
         val KEY_SONG = "SONG"
     }
 
     inner class MusicBinder : Binder() {
-        fun getService(): MusifyPlaybackService = this@MusifyPlaybackService
+        fun getService(): ResonancePlaybackService = this@ResonancePlaybackService
     }
 
     private val binder = MusicBinder()
@@ -57,7 +57,7 @@ class MusifyPlaybackService : Service() {
 
     private lateinit var exoPlayer: ExoPlayer
     private lateinit var mediaSession: MediaSessionCompat
-    private val notificationHelper: MusifyNotificationHelper by inject()
+    private val notificationHelper: ResonanceNotificationHelper by inject()
 
     private var positionUpdateJob: Job? = null
     private var notificationUpdateJob: Job? = null
@@ -544,7 +544,7 @@ class MusifyPlaybackService : Service() {
             it.addListener(playerListener)
         }
 
-        mediaSession = MediaSessionCompat(this, "MusifyPlaybackService").also {
+        mediaSession = MediaSessionCompat(this, "ResonancePlaybackService").also {
             it.isActive = true
             it.setCallback(mediaSessionCallBack)
 
@@ -591,7 +591,7 @@ class MusifyPlaybackService : Service() {
                     try {
                         currentNotification = it
                         startForeground(
-                            MusifyNotificationHelper.NOTIFICATION_ID, it
+                            ResonanceNotificationHelper.NOTIFICATION_ID, it
                         )
                         isForegroundService = true
                     } catch (ex: Exception) {

@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android
+package com.pilabor.resonance
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
@@ -15,10 +15,10 @@ import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 
-import com.codewithfk.musify_android.ui.navigation.AppNavGraph
-import com.codewithfk.musify_android.ui.navigation.HomeRoute
-import com.codewithfk.musify_android.ui.navigation.OnboardingRoute
-import com.codewithfk.musify_android.ui.theme.MusifyAndroidTheme
+import com.pilabor.resonance.ui.navigation.AppNavGraph
+import com.pilabor.resonance.ui.navigation.HomeRoute
+import com.pilabor.resonance.ui.navigation.OnboardingRoute
+import com.pilabor.resonance.ui.theme.ResonanceAndroidTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MusifyAndroidTheme {
+            ResonanceAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
                         AppNavGraph(

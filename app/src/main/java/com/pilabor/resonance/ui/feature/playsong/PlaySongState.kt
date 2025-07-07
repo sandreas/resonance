@@ -1,6 +1,6 @@
-package com.codewithfk.musify_android.ui.feature.playsong
+package com.pilabor.resonance.ui.feature.playsong
 
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 
 sealed class PlaySongState {
     object Loading : PlaySongState()

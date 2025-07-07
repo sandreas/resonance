@@ -1,6 +1,6 @@
-package com.codewithfk.musify_android.mediaSource.api
+package com.pilabor.resonance.mediaSource.api
 
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 
 interface MediaSourceInterface {
     val id : String

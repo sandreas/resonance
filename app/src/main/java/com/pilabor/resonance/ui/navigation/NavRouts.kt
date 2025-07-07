@@ -1,20 +1,20 @@
-package com.codewithfk.musify_android.ui.navigation
+package com.pilabor.resonance.ui.navigation
 
 import kotlinx.serialization.Serializable
 
-interface MusifyNavRoute {}
+interface ResonanceNavRoute {}
 
 @Serializable
-object OnboardingRoute : MusifyNavRoute
+object OnboardingRoute : ResonanceNavRoute
 
 @Serializable
-object LoginRoute : MusifyNavRoute
+object LoginRoute : ResonanceNavRoute
 
 @Serializable
-object RegisterRoute : MusifyNavRoute
+object RegisterRoute : ResonanceNavRoute
 
 @Serializable
-object HomeRoute : MusifyNavRoute
+object HomeRoute : ResonanceNavRoute
 
 @Serializable
-data class PlaySongRoute(val id: String) : MusifyNavRoute
+data class PlaySongRoute(val id: String) : ResonanceNavRoute

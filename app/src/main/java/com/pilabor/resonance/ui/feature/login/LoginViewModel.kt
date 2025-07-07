@@ -1,10 +1,10 @@
-package com.codewithfk.musify_android.ui.feature.login
+package com.pilabor.resonance.ui.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.model.LoginRequest
-import com.codewithfk.musify_android.data.repository.AuthenticationRepository
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.model.LoginRequest
+import com.pilabor.resonance.data.repository.AuthenticationRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class LoginViewModel(
     private val authenticationRepository: AuthenticationRepository,
-    private val musifySession: MusifySession
+    private val resonanceSession: ResonanceSession
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<LoginState>(LoginState.Nothing)
@@ -79,19 +79,19 @@ class LoginViewModel(
                 }
                 val request = LoginRequest(email, password)
                 when (val response = authenticationRepository.login(request)) {
-                    is com.codewithfk.musify_android.data.network.Resource.Success -> {
+                    is com.pilabor.resonance.data.network.Resource.Success -> {
                         val loginResponse = response.data
                         loginResponse.token?.let {
-                            musifySession.saveToken(it)
+                            resonanceSession.saveToken(it)
                         }
                         loginResponse.user?.let { user ->
-                            musifySession.saveUserName(user.name!!)
+                            resonanceSession.saveUserName(user.name!!)
                         }
                         _state.value = LoginState.Success
                         _event.emit(LoginEvent.NavigateToHome)
                     }
 
-                    is com.codewithfk.musify_android.data.network.Resource.Error -> {
+                    is com.pilabor.resonance.data.network.Resource.Error -> {
                         _state.value = LoginState.Error(response.message ?: "An error occurred")
                     }
                 }

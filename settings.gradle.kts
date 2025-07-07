@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Musify-Android"
+rootProject.name = "resonance"
 include(":app")

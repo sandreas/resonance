@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.register
+package com.pilabor.resonance.ui.feature.register
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -28,15 +28,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.codewithfk.musify_android.R
-import com.codewithfk.musify_android.ui.feature.widgets.ErrorScreen
-import com.codewithfk.musify_android.ui.feature.widgets.LoadingScreen
-import com.codewithfk.musify_android.ui.feature.widgets.MusifySpacer
-import com.codewithfk.musify_android.ui.feature.widgets.MusifyTextField
-import com.codewithfk.musify_android.ui.feature.widgets.SocialCard
-import com.codewithfk.musify_android.ui.navigation.HomeRoute
-import com.codewithfk.musify_android.ui.navigation.LoginRoute
-import com.codewithfk.musify_android.ui.theme.MusifyAndroidTheme
+import com.pilabor.resonance.R
+import com.pilabor.resonance.ui.feature.widgets.ErrorScreen
+import com.pilabor.resonance.ui.feature.widgets.LoadingScreen
+import com.pilabor.resonance.ui.feature.widgets.ResonanceSpacer
+import com.pilabor.resonance.ui.feature.widgets.ResonanceTextField
+import com.pilabor.resonance.ui.feature.widgets.SocialCard
+import com.pilabor.resonance.ui.navigation.HomeRoute
+import com.pilabor.resonance.ui.navigation.LoginRoute
+import com.pilabor.resonance.ui.theme.ResonanceAndroidTheme
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 
@@ -141,7 +141,7 @@ fun RegisterScreenContent(
             .padding(16.dp)
     ) {
         Image(painter = painterResource(R.drawable.ic_back), contentDescription = null)
-        MusifySpacer(size = 16.dp)
+        ResonanceSpacer(size = 16.dp)
         Box(modifier = Modifier.fillMaxWidth()) {
             Image(
                 painter = painterResource(R.drawable.ic_logo),
@@ -151,7 +151,7 @@ fun RegisterScreenContent(
                     .align(Alignment.Center),
             )
         }
-        MusifySpacer(16.dp)
+        ResonanceSpacer(16.dp)
         Text(
             "Register your account", style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.onPrimary,
@@ -159,8 +159,8 @@ fun RegisterScreenContent(
                 .fillMaxWidth(),
             textAlign = TextAlign.Center,
         )
-        MusifySpacer(16.dp)
-        MusifyTextField(
+        ResonanceSpacer(16.dp)
+        ResonanceTextField(
             value = name,
             onValueChange = onNameChange,
             label = { Text("Name") },
@@ -175,9 +175,9 @@ fun RegisterScreenContent(
                 .padding(horizontal = 16.dp)
                 .fillMaxWidth()
         )
-        MusifySpacer(8.dp)
+        ResonanceSpacer(8.dp)
 
-        MusifyTextField(
+        ResonanceTextField(
             value = email,
             onValueChange = onEmailChange,
             label = { Text("Email") },
@@ -192,8 +192,8 @@ fun RegisterScreenContent(
                 .padding(horizontal = 16.dp)
                 .fillMaxWidth()
         )
-        MusifySpacer(8.dp)
-        MusifyTextField(
+        ResonanceSpacer(8.dp)
+        ResonanceTextField(
             value = pass,
             onValueChange = onPasswordChange,
             label = { Text("Password") },
@@ -229,8 +229,8 @@ fun RegisterScreenContent(
                 androidx.compose.ui.text.input.PasswordVisualTransformation()
             }
         )
-        MusifySpacer(8.dp)
-        MusifyTextField(
+        ResonanceSpacer(8.dp)
+        ResonanceTextField(
             value = confirmPass,
             onValueChange = onConfirmPasswordChange,
             label = { Text("Confirm Password") },
@@ -266,7 +266,7 @@ fun RegisterScreenContent(
                 androidx.compose.ui.text.input.PasswordVisualTransformation()
             }
         )
-        MusifySpacer(16.dp)
+        ResonanceSpacer(16.dp)
         Button(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
@@ -292,7 +292,7 @@ fun RegisterScreenContent(
 @Preview
 @Composable
 fun RegisterScreenPreview() {
-    MusifyAndroidTheme(darkTheme = true) {
+    ResonanceAndroidTheme(darkTheme = true) {
         RegisterScreenContent(
             name = "John Doe",
             email = "user@example.com",

@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.onboarding
+package com.pilabor.resonance.ui.feature.onboarding
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.theme
+package com.pilabor.resonance.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

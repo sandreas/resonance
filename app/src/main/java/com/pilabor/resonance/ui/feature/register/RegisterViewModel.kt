@@ -1,11 +1,11 @@
-package com.codewithfk.musify_android.ui.feature.register
+package com.pilabor.resonance.ui.feature.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.musify_android.data.model.RegisterRequest
-import com.codewithfk.musify_android.data.repository.AuthenticationRepository
-import com.codewithfk.musify_android.ui.feature.login.LoginEvent
-import com.codewithfk.musify_android.ui.feature.login.LoginState
+import com.pilabor.resonance.data.model.RegisterRequest
+import com.pilabor.resonance.data.repository.AuthenticationRepository
+import com.pilabor.resonance.ui.feature.login.LoginEvent
+import com.pilabor.resonance.ui.feature.login.LoginState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +17,7 @@ import org.koin.android.annotation.KoinViewModel
 @KoinViewModel
 class RegisterViewModel(
     private val authenticationRepository: AuthenticationRepository,
-    private val musifySession: com.codewithfk.musify_android.data.MusifySession
+    private val resonanceSession: com.pilabor.resonance.data.ResonanceSession
 ) :
     ViewModel() {
 
@@ -90,19 +90,19 @@ class RegisterViewModel(
             try {
                 val request = RegisterRequest(name = name, email = email, password = password)
                 when (val response = authenticationRepository.register(request)) {
-                    is com.codewithfk.musify_android.data.network.Resource.Success -> {
+                    is com.pilabor.resonance.data.network.Resource.Success -> {
                         val loginResponse = response.data
                         loginResponse.token?.let {
-                            musifySession.saveToken(it)
+                            resonanceSession.saveToken(it)
                         }
                         loginResponse.user?.let { user ->
-                            musifySession.saveUserName(user.name!!)
+                            resonanceSession.saveUserName(user.name!!)
                         }
                         _state.value = RegisterState.Success
                         _event.emit(RegisterEvent.NavigateToHome)
                     }
 
-                    is com.codewithfk.musify_android.data.network.Resource.Error -> {
+                    is com.pilabor.resonance.data.network.Resource.Error -> {
                         _state.value = RegisterState.Error(response.message ?: "An error occurred")
                     }
                 }

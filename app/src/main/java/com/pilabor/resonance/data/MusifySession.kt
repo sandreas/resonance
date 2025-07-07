@@ -1,15 +1,15 @@
-package com.codewithfk.musify_android.data
+package com.pilabor.resonance.data
 
 import android.content.Context
 import org.koin.core.annotation.Single
 import androidx.core.content.edit
-import com.codewithfk.musify_android.mediaSource.api.MediaSourceInterface
-import com.codewithfk.musify_android.mediaSource.implementation.mock.MockMediaSource
+import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
+import com.pilabor.resonance.mediaSource.implementation.mock.MockMediaSource
 
 @Single
-class MusifySession(private val context: Context) {
+class ResonanceSession(private val context: Context) {
     private val sharedPreferences =
-        context.getSharedPreferences("musify_session", Context.MODE_PRIVATE)
+        context.getSharedPreferences("resonance_session", Context.MODE_PRIVATE)
 
 
 

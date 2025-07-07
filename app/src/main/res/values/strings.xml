@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Musify-Android</string>
+    <string name="app_name">Resonance</string>
     <string name="onboarding_text">
          <![CDATA[
-         From the <highlight>latest</highlight> to the <highlight>greatest</highlight> hits, Play your favorite track on <highlight>Musify</highlight>
+         From the <highlight>latest</highlight> to the <highlight>greatest</highlight> hits, Play your favorite track on <highlight>Resonance</highlight>
          ]]>
     </string>
     <string name="already_have_an_account"><![CDATA[Already have an account? <highlight>Login</highlight>]]></string>

@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.register
+package com.pilabor.resonance.ui.feature.register
 
 sealed class RegisterEvent {
     data class showErrorMessage(val message: String) : RegisterEvent()

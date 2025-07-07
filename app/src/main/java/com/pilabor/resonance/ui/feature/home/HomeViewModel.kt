@@ -1,11 +1,11 @@
-package com.codewithfk.musify_android.ui.feature.home
+package com.pilabor.resonance.ui.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.model.HomeDataResponse
-import com.codewithfk.musify_android.data.repository.HomeRepository
-import com.codewithfk.musify_android.data.repository.MusicRepository
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.model.HomeDataResponse
+import com.pilabor.resonance.data.repository.HomeRepository
+import com.pilabor.resonance.data.repository.MusicRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,14 +14,14 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class HomeViewModel(private val homeRepository: HomeRepository, private  val musifySession: MusifySession, private val musicRepo: MusicRepository) : ViewModel() {
+class HomeViewModel(private val homeRepository: HomeRepository, private  val resonanceSession: ResonanceSession, private val musicRepo: MusicRepository) : ViewModel() {
 
     private val _state = MutableStateFlow<HomeState>(HomeState.Loading)
     val state: StateFlow<HomeState> = _state
 
     private val _event = MutableSharedFlow<HomeEvent>()
     val event = _event.asSharedFlow()
-    val mediaSource = musifySession.getActiveMediaSource()
+    val mediaSource = resonanceSession.getActiveMediaSource()
 
     init {
         // fetchData()
@@ -42,7 +42,7 @@ class HomeViewModel(private val homeRepository: HomeRepository, private  val mus
     }
 
     fun getUserName(): String {
-        return musifySession.getUserName()?: "Guest"
+        return resonanceSession.getUserName()?: "Guest"
     }
     /*
     fun fetchData() {

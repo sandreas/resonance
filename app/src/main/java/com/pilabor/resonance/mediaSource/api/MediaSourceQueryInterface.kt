@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.mediaSource.api
+package com.pilabor.resonance.mediaSource.api
 
 interface MediaSourceQueryInterface {
 }

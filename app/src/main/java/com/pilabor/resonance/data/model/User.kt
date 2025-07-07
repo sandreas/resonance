@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.data.model
+package com.pilabor.resonance.data.model
 
 import com.google.gson.annotations.SerializedName
 

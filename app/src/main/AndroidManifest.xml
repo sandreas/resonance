@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
-        android:name="MusifyApp"
+        android:name="ResonanceApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".data.service.MusifyPlaybackService"
+        <service android:name=".data.service.ResonancePlaybackService"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback"
             />

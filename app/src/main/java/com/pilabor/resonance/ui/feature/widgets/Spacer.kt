@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.widgets
+package com.pilabor.resonance.ui.feature.widgets
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
@@ -7,6 +7,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 
 @Composable
-fun MusifySpacer(size: Dp) {
+fun ResonanceSpacer(size: Dp) {
     Spacer(modifier = Modifier.size(size))
 }

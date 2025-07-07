@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.data.helper
+package com.pilabor.resonance.data.helper
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -11,9 +11,10 @@ import android.os.Build
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.codewithfk.musify_android.MainActivity
-import com.codewithfk.musify_android.data.service.MusifyPlaybackService
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.MainActivity
+import com.pilabor.resonance.R
+import com.pilabor.resonance.data.service.ResonancePlaybackService
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -23,12 +24,12 @@ import org.koin.core.annotation.Single
 import java.net.URL
 
 @Single
-class MusifyNotificationHelper(private val context: Context) {
+class ResonanceNotificationHelper(private val context: Context) {
 
     companion object {
-        const val CHANNEL_ID = "musify_notification_channel"
-        const val CHANNEL_NAME = "Musify Notification Channel"
-        const val CHANNEL_DESCRIPTION = "Channel for Musify playback notifications"
+        const val CHANNEL_ID = "resonance_notification_channel"
+        const val CHANNEL_NAME = "Resonance Notification Channel"
+        const val CHANNEL_DESCRIPTION = "Channel for Resonance playback notifications"
         const val NOTIFICATION_ID = 1
 
         fun createNotificationChannel(context: Context) {
@@ -64,7 +65,7 @@ class MusifyNotificationHelper(private val context: Context) {
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(song.title)
             .setContentText(song.artist)
-            .setSmallIcon(com.codewithfk.musify_android.R.drawable.ic_profile)
+            .setSmallIcon(R.drawable.ic_profile)
             .setContentIntent(pendingIntent)
             .setStyle(
                 androidx.media.app.NotificationCompat.MediaStyle()
@@ -77,17 +78,17 @@ class MusifyNotificationHelper(private val context: Context) {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
 
-        val prevIntent = Intent(context, MusifyPlaybackService::class.java).apply {
-            action = MusifyPlaybackService.ACTION_PREVIOUS
+        val prevIntent = Intent(context, ResonancePlaybackService::class.java).apply {
+            action = ResonancePlaybackService.ACTION_PREVIOUS
         }
-        val nextIntent = Intent(context, MusifyPlaybackService::class.java).apply {
-            action = MusifyPlaybackService.ACTION_NEXT
+        val nextIntent = Intent(context, ResonancePlaybackService::class.java).apply {
+            action = ResonancePlaybackService.ACTION_NEXT
         }
-        val playIntent = Intent(context, MusifyPlaybackService::class.java).apply {
-            action = MusifyPlaybackService.ACTION_PLAY
+        val playIntent = Intent(context, ResonancePlaybackService::class.java).apply {
+            action = ResonancePlaybackService.ACTION_PLAY
         }
-        val pauseIntent = Intent(context, MusifyPlaybackService::class.java).apply {
-            action = MusifyPlaybackService.ACTION_PAUSE
+        val pauseIntent = Intent(context, ResonancePlaybackService::class.java).apply {
+            action = ResonancePlaybackService.ACTION_PAUSE
         }
 
         val prevPendingIntent = PendingIntent.getService(

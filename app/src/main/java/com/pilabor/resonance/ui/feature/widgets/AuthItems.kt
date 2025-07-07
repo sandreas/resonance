@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.widgets
+package com.pilabor.resonance.ui.feature.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,8 +25,8 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.codewithfk.musify_android.R
-import com.codewithfk.musify_android.ui.theme.MusifyAndroidTheme
+import com.pilabor.resonance.R
+import com.pilabor.resonance.ui.theme.ResonanceAndroidTheme
 
 @Composable
 fun SocialCard(
@@ -40,38 +40,38 @@ fun SocialCard(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            MusifySpacer(16.dp)
+            ResonanceSpacer(16.dp)
             Box(
                 modifier = Modifier
                     .height(1.dp)
                     .weight(1f)
                     .background(MaterialTheme.colorScheme.onPrimary)
             )
-            MusifySpacer(8.dp)
+            ResonanceSpacer(8.dp)
             Text(
                 "or continue with ", style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onPrimary,
                 fontWeight = FontWeight.Normal
             )
-            MusifySpacer(8.dp)
+            ResonanceSpacer(8.dp)
             Box(
                 modifier = Modifier
                     .height(1.dp)
                     .weight(1f)
                     .background(MaterialTheme.colorScheme.onPrimary)
             )
-            MusifySpacer(16.dp)
+            ResonanceSpacer(16.dp)
         }
-        MusifySpacer(16.dp)
+        ResonanceSpacer(16.dp)
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             SocialButtons(onClick = onFbClick, res = R.drawable.ic_fb)
-            MusifySpacer(16.dp)
+            ResonanceSpacer(16.dp)
             SocialButtons(onClick = onFbClick, res = R.drawable.google)
         }
-        MusifySpacer(16.dp)
+        ResonanceSpacer(16.dp)
         HighlightedText(
             stringRes,
             SpanStyle(
@@ -81,7 +81,7 @@ fun SocialCard(
             modifier = Modifier.clickable { onClick.invoke() },
             textStyle = MaterialTheme.typography.labelMedium.copy(color = MaterialTheme.colorScheme.onPrimary),
         )
-        MusifySpacer(16.dp)
+        ResonanceSpacer(16.dp)
     }
 }
 
@@ -114,7 +114,7 @@ fun SocialButtons(
 @Preview
 @Composable
 fun SocialCardPreview() {
-    MusifyAndroidTheme {
+    ResonanceAndroidTheme {
         SocialCard(
             stringRes = R.string.do_not_have_an_account,
             onClick = {},

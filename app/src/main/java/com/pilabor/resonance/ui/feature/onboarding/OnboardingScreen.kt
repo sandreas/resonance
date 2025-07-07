@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.onboarding
+package com.pilabor.resonance.ui.feature.onboarding
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -34,10 +34,10 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.codewithfk.musify_android.R
-import com.codewithfk.musify_android.ui.feature.widgets.HighlightedText
-import com.codewithfk.musify_android.ui.navigation.LoginRoute
-import com.codewithfk.musify_android.ui.navigation.OnboardingRoute
+import com.pilabor.resonance.R
+import com.pilabor.resonance.ui.feature.widgets.HighlightedText
+import com.pilabor.resonance.ui.navigation.LoginRoute
+import com.pilabor.resonance.ui.navigation.OnboardingRoute
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.compose.koinViewModel
 

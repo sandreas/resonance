@@ -1,9 +1,9 @@
-package com.codewithfk.musify_android.mediaSource.implementation.audiobookshelf
+package com.pilabor.resonance.mediaSource.implementation.audiobookshelf
 
-import com.codewithfk.musify_android.mediaSource.api.MediaSourceAction
-import com.codewithfk.musify_android.mediaSource.api.MediaSourceInterface
-import com.codewithfk.musify_android.mediaSource.api.MediaSourceQueryInterface
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.mediaSource.api.MediaSourceAction
+import com.pilabor.resonance.mediaSource.api.MediaSourceInterface
+import com.pilabor.resonance.mediaSource.api.MediaSourceQueryInterface
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import okhttp3.internal.immutableListOf
 
 class AudioBookShelfMediaSource(override val id: String, override val name: String) : MediaSourceInterface {

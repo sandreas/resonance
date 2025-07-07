@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.data.model
+package com.pilabor.resonance.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

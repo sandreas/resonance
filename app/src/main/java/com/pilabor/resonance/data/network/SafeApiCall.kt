@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.data.network
+package com.pilabor.resonance.data.network
 
 import retrofit2.HttpException
 import retrofit2.Response

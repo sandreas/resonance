@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.feature.playsong
+package com.pilabor.resonance.ui.feature.playsong
 
 import android.content.ComponentName
 import android.content.Context
@@ -7,11 +7,11 @@ import android.content.ServiceConnection
 import android.os.IBinder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.musify_android.data.MusifySession
-import com.codewithfk.musify_android.data.repository.MusicRepository
-import com.codewithfk.musify_android.data.service.MusifyPlaybackService
-import com.codewithfk.musify_android.data.service.MusifyPlaybackService.Companion.KEY_SONG
-import com.codewithfk.musify_android.mediaSource.api.model.MediaSourceItem
+import com.pilabor.resonance.data.ResonanceSession
+import com.pilabor.resonance.data.repository.MusicRepository
+import com.pilabor.resonance.data.service.ResonancePlaybackService
+import com.pilabor.resonance.data.service.ResonancePlaybackService.Companion.KEY_SONG
+import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
-class PlaySongViewModel(private val repo: MusicRepository, private val session: MusifySession, private val context: Context) :
+class PlaySongViewModel(private val repo: MusicRepository, private val session: ResonanceSession, private val context: Context) :
     ViewModel() {
 
     private val _state = MutableStateFlow<PlaySongState>(PlaySongState.Loading)
@@ -32,7 +32,7 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
     val event = _event.asSharedFlow()
     val mediaSource = session.getActiveMediaSource()
 
-    private var playbackService: MusifyPlaybackService? = null
+    private var playbackService: ResonancePlaybackService? = null
     private var isServiceBound = false
     private var currentSong: MediaSourceItem? = null
 
@@ -42,7 +42,7 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
             binder: IBinder?
         ) {
             isServiceBound = true
-            playbackService = (binder as MusifyPlaybackService.MusicBinder).getService()
+            playbackService = (binder as ResonancePlaybackService.MusicBinder).getService()
             observePlaybackService()
             currentSong?.let {
                 playbackService?.playSong(it)
@@ -104,8 +104,8 @@ class PlaySongViewModel(private val repo: MusicRepository, private val session: 
     }
 
     private fun startServiceAndBind(song: MediaSourceItem) {
-        val intent = Intent(context, MusifyPlaybackService::class.java).apply {
-            action = MusifyPlaybackService.ACTION_PLAY
+        val intent = Intent(context, ResonancePlaybackService::class.java).apply {
+            action = ResonancePlaybackService.ACTION_PLAY
             putExtra(KEY_SONG, song)
         }
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {

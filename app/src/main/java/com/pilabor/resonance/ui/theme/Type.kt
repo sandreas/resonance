@@ -1,4 +1,4 @@
-package com.codewithfk.musify_android.ui.theme
+package com.pilabor.resonance.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -6,7 +6,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.codewithfk.musify_android.R
+import com.pilabor.resonance.R
 
 val fontFamily = FontFamily(
     Font(R.font.centurygothic, FontWeight.Normal),
