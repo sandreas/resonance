@@ -10,8 +10,6 @@ import android.os.IBinder
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
-import android.util.Log
-import android.view.KeyEvent
 import androidx.media.session.MediaButtonReceiver
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
@@ -22,12 +20,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import kotlin.time.Duration.Companion.milliseconds
 
 class PlaybackService : Service() {
 
@@ -140,7 +136,8 @@ class PlaybackService : Service() {
         }
     }
 
-
+    val mediaSessionCallBack = MediaSessionCallback(this)
+/*
     val mediaSessionCallBack = object : MediaSessionCompat.Callback() {
         override fun onPlay() {
             resumeSong()
@@ -530,7 +527,7 @@ class PlaybackService : Service() {
         /* END CUSTOM sandreas */
 
     }
-
+*/
 
 
     override fun onCreate() {
@@ -739,6 +736,35 @@ class PlaybackService : Service() {
         }
         updateNotification()
     }
+
+    fun seekTo(pos: Long) {
+        exoPlayer.seekTo(pos)
+        _player.value = playerState.value.copy(
+            currentPosition = pos,
+            duration = exoPlayer.duration,
+            isBuffering = exoPlayer.isLoading,
+            isPlaying = exoPlayer.isPlaying,
+            error = null
+        )
+    }
+
+    /* CUSTOM sandreas! */
+    fun seek(offset: Long): Long {
+        val currentPos = exoPlayer.currentPosition
+        var newPosition = currentPos + offset
+        if (newPosition < 0) {
+            newPosition = 0;
+        } else if (newPosition > exoPlayer.duration) {
+            newPosition = exoPlayer.duration - 1;
+        }
+        exoPlayer.seekTo(newPosition)
+        _player.value = playerState.value.copy(
+            currentPosition = newPosition,
+            duration = exoPlayer.duration
+        )
+        return newPosition
+    }
+
     fun isPlaying(): Boolean {
         return exoPlayer.isPlaying
     }
