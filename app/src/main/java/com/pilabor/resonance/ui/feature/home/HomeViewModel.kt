@@ -4,17 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pilabor.resonance.data.SettingsStorage
 import com.pilabor.resonance.data.model.HomeDataResponse
-import com.pilabor.resonance.data.repository.HomeRepository
-import com.pilabor.resonance.data.repository.MusicRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import org.koin.android.annotation.KoinViewModel
 
-@KoinViewModel
-class HomeViewModel(private val homeRepository: HomeRepository, private  val resonanceSession: SettingsStorage, private val musicRepo: MusicRepository) : ViewModel() {
+class HomeViewModel( private  val resonanceSession: SettingsStorage) : ViewModel() {
 
     private val _state = MutableStateFlow<HomeState>(HomeState.Loading)
     val state: StateFlow<HomeState> = _state

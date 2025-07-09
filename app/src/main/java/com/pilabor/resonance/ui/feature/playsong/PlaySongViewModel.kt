@@ -8,7 +8,6 @@ import android.os.IBinder
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.pilabor.resonance.data.SettingsStorage
-import com.pilabor.resonance.data.repository.MusicRepository
 import com.pilabor.resonance.data.service.PlaybackService
 import com.pilabor.resonance.data.service.PlaybackService.Companion.KEY_SONG
 import com.pilabor.resonance.mediaSource.api.model.MediaSourceItem
@@ -19,10 +18,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import org.koin.android.annotation.KoinViewModel
 
-@KoinViewModel
-class PlaySongViewModel(private val repo: MusicRepository, private val session: SettingsStorage, private val context: Context) :
+class PlaySongViewModel(private val session: SettingsStorage, private val context: Context) :
     ViewModel() {
 
     private val _state = MutableStateFlow<PlaySongState>(PlaySongState.Loading)
