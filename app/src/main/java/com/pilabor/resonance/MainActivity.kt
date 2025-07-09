@@ -17,7 +17,6 @@ import androidx.navigation.compose.rememberNavController
 
 import com.pilabor.resonance.ui.navigation.AppNavGraph
 import com.pilabor.resonance.ui.navigation.HomeRoute
-import com.pilabor.resonance.ui.navigation.OnboardingRoute
 import com.pilabor.resonance.ui.theme.ResonanceAndroidTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
